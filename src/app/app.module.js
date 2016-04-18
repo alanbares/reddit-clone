@@ -10,6 +10,7 @@
         'firebase',
 
         // Custom modules.
+        'app.core',
         'app.landing'
 
     ])
