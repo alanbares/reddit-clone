@@ -2,13 +2,32 @@
   'use strict';
 
   angular
-    .module('app.landing', [])
-    .controller('landingController', landingController);
+    .module('app.landing')
+    .controller('LandingController', LandingController);
 
-  landingController.$inject = ['$scope', 'firebase'];
+  LandingController.$inject = ['$firebaseArray'];
 
-  function landingController ($scope, firebase) {
+  function LandingController ($firebaseArray) {
+    var vm = this;
+    var firePosts = new Firebase('https://reddit-clone-alan.firebaseio.com/posts');
 
+
+
+    vm.newPost = new Post();
+    vm.posts = $firebaseArray(firePosts);
+    vm.addPost = addPost;
+
+
+    function Post() {
+      this.name = '',
+      this.description = '',
+      this.url = '';
+    }
+
+    function addPost() {
+      vm.posts.$add(vm.newPost);
+    }
   }
 
 })();
+

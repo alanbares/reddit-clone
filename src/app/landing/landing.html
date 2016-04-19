@@ -1,8 +1,13 @@
 <div>
-  <form>
-    <input type="text" placeholder="Name" ng-model=vm.name>
-    <input type="text" placeholder="Description" ng-model=vm.description>
-    <input type="text" placeholder="URL" ng-model=vm.url>
-    <button ng-click="vm.savePost(post)">Save Post</button>
+  <form ng-submit="vm.addPost()">
+    <input type="text" placeholder="Name" ng-model=vm.newPost.name>
+    <input type="text" placeholder="Description" ng-model=vm.newPost.description>
+    <input type="text" placeholder="URL" ng-model=vm.newPost.url>
+    <button type="submit">Save Post</button>
   </form>
 </div>
+
+
+{{vm.posts}}
+<br>
+{{vm.newPost}}
