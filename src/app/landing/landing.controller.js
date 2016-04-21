@@ -26,6 +26,7 @@
 
     function addPost() {
       vm.posts.$add(vm.newPost);
+      vm.newPost = new Post();
     }
   }
 
