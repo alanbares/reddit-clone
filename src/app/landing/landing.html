@@ -1,8 +1,8 @@
 <div>
   <form ng-submit="vm.addPost()">
-    <input type="text" placeholder="Name" ng-model=vm.newPost.name>
-    <input type="text" placeholder="Description" ng-model=vm.newPost.description>
-    <input type="text" placeholder="URL" ng-model=vm.newPost.url>
+    <input ng-model="vm.newPost.name" type="text" placeholder="Name"  required>
+    <input ng-model="vm.newPost.description" type="text" placeholder="Description" required>
+    <input ng-model="vm.newPost.url" type="text" placeholder="URL"  required>
     <button type="submit">Save Post</button>
   </form>
 </div>
