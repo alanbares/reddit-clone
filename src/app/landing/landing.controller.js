@@ -16,6 +16,7 @@
     vm.newPost = new Post();
     vm.posts = $firebaseArray(firePosts);
     vm.addPost = addPost;
+    vm.deletePost = deletePost;
 
 
     function Post() {
@@ -27,6 +28,10 @@
     function addPost() {
       vm.posts.$add(vm.newPost);
       vm.newPost = new Post();
+    }
+
+    function deletePost(post) {
+      vm.posts.$remove(post);
     }
   }
 
