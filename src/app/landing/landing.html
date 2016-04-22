@@ -24,7 +24,7 @@
   <h2><a ng-href="{{post.url}}">{{post.name}}</a></h2>
   <p>{{post.description}}</p>
   <button ng-click="vm.deletePost(post)" class="btn btn-danger">Delete Post</button>
-  <span min=0>{{post.voteCount}}</span>
+  <span>{{post.voteCount}}</span>
   <button ng-click="vm.upVote(post)" class="btn btn-primary">Up Vote</button>
   <button ng-click="vm.downVote(post)" class="btn btn-primary">Down Vote</button>
 </div>
