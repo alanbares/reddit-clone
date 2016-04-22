@@ -18,6 +18,7 @@
     vm.addPost = addPost;
     vm.deletePost = deletePost;
     vm.upVote = upVote;
+    vm.downVote = downVote;
 
 
     function Post() {
@@ -41,6 +42,12 @@
       post.voteCount++;
       vm.posts.$save(post);
     }
+
+    function downVote(post) {
+      post.voteCount--;
+      vm.posts.$save(post);
+    }
+
   }
 
 })();
