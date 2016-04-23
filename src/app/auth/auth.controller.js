@@ -20,7 +20,13 @@
     }
 
     function register(user) {
-      return firebaseAuthObject.$createUser(user);
+      return firebaseAuthObject.$createUser(user)
+      .then(function(user) {
+        console.log(user);
+      })
+      .catch(function(error){
+        console.log(error);
+      });
     }
 
   }
