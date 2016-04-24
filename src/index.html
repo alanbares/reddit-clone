@@ -14,7 +14,7 @@
   <body>
 
     <!--Main content that changes based on route-->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <nav ng-controller="AuthController as vm" class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
           <div class="navbar-header">
               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -33,8 +33,8 @@
 -->
               <ul class="nav navbar-nav navbar-right">
                   <li><a href="#/login">Log in</a></li>
+                	<li><a href="" ng-click="vm.logout()">Log out</a></li>
                   <li><a href="#/register">Register</a></li>
-<!--                  <li><a href="" ng-click="vm.logout()" ng-show="vm.isLoggedIn()">Log out</a></li>-->
               </ul>
             </form>
 
@@ -42,7 +42,7 @@
       </div>
     </nav>
 
-    <div ng-view></div>
+    <div ng-view class="container"></div>
 
     <!--Third-party JS-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

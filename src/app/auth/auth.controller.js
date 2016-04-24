@@ -5,20 +5,22 @@
     .module('app.auth')
     .controller('AuthController', AuthController);
 
-  AuthController.$inject = ['$firebaseAuth'];
+  AuthController.$inject = ['$location', '$firebaseAuth'];
 
-  function AuthController ($firebaseAuth) {
+  function AuthController ($location, $firebaseAuth) {
     var vm = this;
     var firebaseReference = new Firebase('https://reddit-clone-alan.firebaseio.com/');
     var firebaseAuthObject = $firebaseAuth(firebaseReference);
 
-    // View model methods
-    vm.register = register;
-		vm.login = login;
-    vm.user = {
+      vm.user = {
       email: '',
       password: ''
     }
+
+		// View model methods
+    vm.register = register;
+		vm.login = login;
+		vm.logout = logout;
 
     function register(user) {
       return firebaseAuthObject.$createUser(user)
@@ -34,10 +36,16 @@
 			return firebaseAuthObject.$authWithPassword(user)
 				.then(function(loggedInUser) {
 					console.log(loggedInUser);
+					$location.path('/');
 				})
 				.catch(function(error) {
 					console.log(error);
 				})
+		}
+
+		function logout() {
+			firebaseAuthObject.$unauth();
+			$location.path('/');
 		}
 
   }
