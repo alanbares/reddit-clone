@@ -21,6 +21,7 @@
     vm.register = register;
 		vm.login = login;
 		vm.logout = logout;
+    vm.isLoggedIn = isLoggedIn;
 
     function register(user) {
       return firebaseAuthObject.$createUser(user)
@@ -47,6 +48,10 @@
 			firebaseAuthObject.$unauth();
 			$location.path('/');
 		}
+    
+    function isLoggedIn() {
+      return firebaseAuthObject.$getAuth();
+    }
 
   }
 })();

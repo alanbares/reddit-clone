@@ -20,7 +20,6 @@
     vm.upVote = upVote;
     vm.downVote = downVote;
 
-
     function Post() {
       this.name = '';
       this.description = '';
