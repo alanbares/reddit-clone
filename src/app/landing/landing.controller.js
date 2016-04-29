@@ -5,31 +5,24 @@
     .module('app.landing')
     .controller('LandingController', LandingController);
 
-  LandingController.$inject = ['$firebaseArray', 'FIREBASE_URL'];
+  LandingController.$inject = ['$firebaseArray', 'FIREBASE_URL', 'submitService'];
 
-  function LandingController ($firebaseArray, FIREBASE_URL) {
+  function LandingController ($firebaseArray, FIREBASE_URL, submitService) {
     var vm = this;
     var firePosts = new Firebase(FIREBASE_URL + 'posts');
 
 
     //View model methods
-    vm.newPost = new Post();
+    vm.newPost = new submitService.Post();
     vm.posts = $firebaseArray(firePosts);
     vm.addPost = addPost;
     vm.deletePost = deletePost;
     vm.upVote = upVote;
     vm.downVote = downVote;
 
-    function Post() {
-      this.name = '';
-      this.description = '';
-      this.url = '';
-      this.voteCount = 0;
-    }
-
     function addPost() {
       vm.posts.$add(vm.newPost);
-      vm.newPost = new Post();
+      vm.newPost = new submitService.Post();
 
     }
 

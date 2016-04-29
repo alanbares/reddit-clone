@@ -13,8 +13,6 @@
         'app.auth',
         'app.core',
         'app.landing'
-
-
     ])
     .config(configFunction)
 
