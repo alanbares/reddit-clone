@@ -5,12 +5,13 @@
     .module('app.core')
     .factory('submitService', submitService);
 
-  submitService.$inject = ['FIREBASE_URL'];
+  submitService.$inject = ['$firebaseArray', 'firebaseDataService'];
 
-  function submitService(FIREBASE_URL) {
+  function submitService($firebaseArray, firebaseDataService) {
 
     var service = {
-      Post: Post
+      Post: Post,
+      posts: $firebaseArray(firebaseDataService.root.child('posts'))
     };
 
     return service;
