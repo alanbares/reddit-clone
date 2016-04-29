@@ -5,11 +5,11 @@
     .module('app.landing')
     .controller('LandingController', LandingController);
 
-  LandingController.$inject = ['$firebaseArray'];
+  LandingController.$inject = ['$firebaseArray', 'FIREBASE_URL'];
 
-  function LandingController ($firebaseArray) {
+  function LandingController ($firebaseArray, FIREBASE_URL) {
     var vm = this;
-    var firePosts = new Firebase('https://reddit-clone-alan.firebaseio.com/posts');
+    var firePosts = new Firebase(FIREBASE_URL + 'posts');
 
 
     //View model methods

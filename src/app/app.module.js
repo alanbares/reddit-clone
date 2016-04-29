@@ -10,8 +10,10 @@
         'firebase',
 
         // Custom modules.
-        'app.landing',
-        'app.auth'
+        'app.auth',
+        'app.core',
+        'app.landing'
+
 
     ])
     .config(configFunction)
