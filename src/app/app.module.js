@@ -12,7 +12,8 @@
         // Custom modules.
         'app.auth',
         'app.core',
-        'app.landing'
+        'app.landing',
+        'app.submit'
     ])
     .config(configFunction)
 

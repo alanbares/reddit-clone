@@ -12,18 +12,10 @@
 
 
     //View model methods
-    vm.newPost = new submitService.Post();
     vm.posts = submitService.posts;
-    vm.addPost = addPost;
     vm.deletePost = deletePost;
     vm.upVote = upVote;
     vm.downVote = downVote;
-
-    function addPost() {
-      vm.posts.$add(vm.newPost);
-      vm.newPost = new submitService.Post();
-
-    }
 
     function deletePost(post) {
       vm.posts.$remove(post);

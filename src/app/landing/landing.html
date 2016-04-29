@@ -1,26 +1,7 @@
-<div>
-  <form ng-submit="vm.addPost()" class="container form-inputs">
 
-    <div class="form-group">
-      <label class="control-label" for="focusedInput">Post Name</label>
-      <input ng-model="vm.newPost.name" class="form-control" type="text" placeholder="Name" autofocus required>
-    </div>
+<!-- <button class="btn btn-primary">Submit a new post</button>-->
 
-    <div class="form-group">
-      <label class="control-label" for="focusedInput">Post Description</label>
-      <input ng-model="vm.newPost.description" class="form-control" type="text" placeholder="Description" required>
-    </div>
-
-    <div class="form-group">
-      <label class="control-label" for="focusedInput">Post URL</label>
-      <input ng-model="vm.newPost.url" class="form-control" type="text" placeholder="URL"  required>
-    </div>
-
-    <button type="submit" class="btn btn-primary">Save Post</button>
-  </form>
-</div>
-
-<div ng-repeat="post in vm.posts">
+ <div ng-repeat="post in vm.posts">
   <h2><a ng-href="{{post.url}}">{{post.name}}</a></h2>
   <p>{{post.description}}</p>
   <button ng-click="vm.deletePost(post)" class="btn btn-danger">Delete Post</button>
