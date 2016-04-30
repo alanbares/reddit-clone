@@ -31,7 +31,7 @@
     }
 
     function logout() {
-      return firebaseAuthObject.$unAuth();
+       firebaseAuthObject.$unauth();
     }
 
     function isLoggedIn() {
