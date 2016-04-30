@@ -13,10 +13,9 @@
       // View model methods
       vm.newPost = new submitService.Post();
       vm.addPost = addPost;
-      vm.posts = submitService.posts;
 
       function addPost() {
-        vm.posts.$add(vm.newPost);
+        submitService.posts.$add(vm.newPost);
         vm.newPost = new submitService.Post();
         $location.path('/');
       }
