@@ -9,10 +9,11 @@
 
   function AuthController ($location, authService) {
     var vm = this;
-      vm.user = {
+
+    vm.user = {
       email: '',
       password: ''
-    }
+    };
 
 		// View model methods
     vm.register = register;
