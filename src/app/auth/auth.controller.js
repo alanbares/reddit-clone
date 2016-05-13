@@ -12,6 +12,8 @@
 
     vm.user = {
       email: '',
+      firstName: '',
+      lastName:'',
       password: ''
     };
 
@@ -23,8 +25,13 @@
 
     function register(user) {
       return authService.register(user)
-				.then(function() {
+				.then(function(registeredUser) {
+          var uniqueUser = authService.getUsersByUid(registeredUser.uid);
 					vm.login(user);
+          uniqueUser.$add({
+            firstName: user.firstName,
+            lastName: user.lastName
+          });
 				})
 				.catch(function(error) {
 					console.log(error);
@@ -33,8 +40,7 @@
 
 		function login(user) {
 			return authService.login(user)
-				.then(function(loggedInUser) {
-					console.log(loggedInUser);
+				.then(function() {
 					$location.path('/');
 				})
 				.catch(function(error) {
