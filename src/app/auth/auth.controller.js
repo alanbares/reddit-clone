@@ -28,7 +28,8 @@
 				.then(function(registeredUser) {
           var uniqueUser = authService.getUsersByUid(registeredUser.uid);
 					vm.login(user);
-          uniqueUser.$add({
+          uniqueUser.set({
+            email: user.email,
             firstName: user.firstName,
             lastName: user.lastName
           });

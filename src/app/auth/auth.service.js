@@ -32,7 +32,7 @@
     }
 
     function logout() {
-       firebaseAuthObject.$unauth();
+      firebaseAuthObject.$unauth();
     }
 
     function isLoggedIn() {
@@ -40,7 +40,7 @@
     }
 
     function getUsersByUid(uid) {
-      return $firebaseArray(firebaseDataService.users.child(uid).child('user'));
+      return firebaseDataService.users.child(uid).child('user');
     }
 
   }
