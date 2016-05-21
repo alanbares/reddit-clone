@@ -22,6 +22,7 @@
 		vm.login = login;
 		vm.logout = logout;
     vm.isLoggedIn = authService.isLoggedIn;
+//    vm.sendPasswordResetEmail = sendPasswordResetEmail;
 
     function register(user) {
       return authService.register(user)
@@ -53,6 +54,16 @@
 			authService.logout();
 			$location.path('/');
 		}
+
+//    function sendPasswordResetEmail(user) {
+//      vm.user.$resetPassword({
+//        email: user.email
+//      }).then(function() {
+//        console.log('Password was reset successfully');
+//      }).catch(function(error) {
+//        console.log('error', error);
+//      })
+//    };
 
   }
 })();

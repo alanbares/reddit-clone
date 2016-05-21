@@ -18,6 +18,11 @@
           controller: 'AuthController',
           controllerAs: 'vm'
 				});
+        $routeProvider.when('/resetPassword', {
+          templateUrl: 'app/auth/resetPassword.html',
+          controller: 'AuthController',
+          controllerAs: 'vm'
+				});
     }
 
 })();
