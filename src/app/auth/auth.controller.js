@@ -22,7 +22,7 @@
 		vm.login = login;
 		vm.logout = logout;
     vm.isLoggedIn = authService.isLoggedIn;
-//    vm.sendPasswordResetEmail = sendPasswordResetEmail;
+    vm.sendPasswordResetEmail = sendPasswordResetEmail;
 
     function register(user) {
       return authService.register(user)
@@ -55,15 +55,15 @@
 			$location.path('/');
 		}
 
-//    function sendPasswordResetEmail(user) {
-//      vm.user.$resetPassword({
-//        email: user.email
-//      }).then(function() {
-//        console.log('Password was reset successfully');
-//      }).catch(function(error) {
-//        console.log('error', error);
-//      })
-//    };
+    function sendPasswordResetEmail() {
+      authService.firebaseAuthObject.$resetPassword({
+        email: vm.user.email
+      }).then(function() {
+        console.log('Password was reset successfully');
+      }).catch(function(error) {
+        console.log('error', error);
+      })
+    };
 
   }
 })();
