@@ -23,6 +23,11 @@
           controller: 'AuthController',
           controllerAs: 'vm'
 				});
+        $routeProvider.when('/changePassword', {
+          templateUrl: 'app/auth/changePassword.html',
+          controller: 'AuthController',
+          controllerAs: 'vm'
+				});
     }
 
 })();

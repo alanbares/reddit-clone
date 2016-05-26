@@ -59,11 +59,20 @@
       authService.firebaseAuthObject.$resetPassword({
         email: vm.user.email
       }).then(function() {
-        console.log('Password was reset successfully');
+        $location.path('/changePassword')
+        console.log('Password reset email was sent successfully');
       }).catch(function(error) {
         console.log('error', error);
       })
     };
+
+//    function changePassword() {
+//      authService.firebaseAuthObject.$changePassword({
+//        email: vm.user.email,
+//        oldPassword: vm.user.password,
+//        newPassword: vm.user.password.isTemporaryPassword
+//      })
+//    }
 
   }
 })();
