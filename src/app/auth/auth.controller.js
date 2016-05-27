@@ -14,6 +14,8 @@
       email: '',
       firstName: '',
       lastName:'',
+      oldPassword:'',
+      newPassword:'',
       password: ''
     };
 
@@ -23,6 +25,7 @@
 		vm.logout = logout;
     vm.isLoggedIn = authService.isLoggedIn;
     vm.sendPasswordResetEmail = sendPasswordResetEmail;
+    vm.changePassword = changePassword;
 
     function register(user) {
       return authService.register(user)
@@ -66,13 +69,19 @@
       })
     };
 
-//    function changePassword() {
-//      authService.firebaseAuthObject.$changePassword({
-//        email: vm.user.email,
-//        oldPassword: vm.user.password,
-//        newPassword: vm.user.password.isTemporaryPassword
-//      })
-//    }
+    function changePassword() {
+      console.log(vm.user);
+      authService.firebaseAuthObject.$changePassword({
+        email: vm.user.email,
+        oldPassword: vm.user.oldPassword,
+        newPassword: vm.user.newPassword
+      }).then(function() {
+        console.log('Password changed successfully!')
+        $location.path('/login')
+      }).catch(function(error) {
+        console.log('error', error);
+      })
+    }
 
   }
 })();
