@@ -62,7 +62,7 @@
       authService.firebaseAuthObject.$resetPassword({
         email: vm.user.email
       }).then(function() {
-        $location.path('/changePassword')
+        $location.path('/changePassword');
         console.log('Password reset email was sent successfully');
       }).catch(function(error) {
         console.log('error', error);
@@ -70,14 +70,13 @@
     };
 
     function changePassword() {
-      console.log(vm.user);
       authService.firebaseAuthObject.$changePassword({
         email: vm.user.email,
         oldPassword: vm.user.oldPassword,
         newPassword: vm.user.newPassword
       }).then(function() {
-        console.log('Password changed successfully!')
-        $location.path('/login')
+        console.log('Password changed successfully!');
+        $location.path('/login');
       }).catch(function(error) {
         console.log('error', error);
       })
