@@ -22,7 +22,6 @@
 		// View model methods
     vm.register = register;
 		vm.login = login;
-		vm.logout = logout;
     vm.isLoggedIn = authService.isLoggedIn;
     vm.sendPasswordResetEmail = sendPasswordResetEmail;
     vm.changePassword = changePassword;
@@ -51,11 +50,6 @@
 				.catch(function(error) {
 					console.log(error);
 				})
-		}
-
-		function logout() {
-			authService.logout();
-			$location.path('/');
 		}
 
     function sendPasswordResetEmail() {
